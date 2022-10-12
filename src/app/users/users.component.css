@@ -1,0 +1,16 @@
+.main-container{
+    padding: 20px 20px;
+    color: white;
+}
+.table{
+    width: auto;
+    background-color: #888888;
+    border-radius: 10px;
+    margin: 20px;
+    font-size: 20px;
+    color: black;
+}
+h2{
+    font-weight: 300;
+    font-weight: bold;
+}

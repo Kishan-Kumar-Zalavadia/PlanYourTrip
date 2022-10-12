@@ -1,0 +1,90 @@
+<div class="main-container">
+
+    <div class="col-sm-10"> 
+        <h1>Booking</h1>
+        <form>
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label">User Name:</label>
+                <div class="col-sm-10">
+                    <label for="" class="col-sm-2 col-form-label">{{user.userName}}</label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label">Hotel Name:</label>
+                <div class="col-sm-10">
+                    <label for="" class="col-sm-2 col-form-label">{{hotel.hotelName}}</label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label">Hotel City:</label>
+                <div class="col-sm-10">
+                    <label for="" class="col-sm-2 col-form-label">{{hotel.hotelCity}}</label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label">Hotel Price:</label>
+                <div class="col-sm-10">
+                    <label for="" class="col-sm-2 col-form-label">{{hotel.hotelPrice}}</label>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Hotel Rooms:</label>
+                <div class="col-sm-10">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">{{hotel.hotelRooms}}</label>
+                </div>
+            </div>
+            <fieldset class="form-group">
+                <div class="row">
+                    <label class="col-form-label col-sm-2 pt-0">Payment Method</label>
+                    <div class="col-sm-10">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1"
+                                value="option1" checked>
+                            <label class="form-check-label" for="gridRadios1">
+                                GPay
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2"
+                                value="option2">
+                            <label class="form-check-label" for="gridRadios2">
+                                Paytm
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3"
+                                value="option3">
+                            <label class="form-check-label" for="gridRadios3">
+                                PhonePay
+                            </label>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </fieldset>
+
+
+            <!-- <fieldset class="form-group">
+                <div class="row">
+                    <label class="col-form-label col-sm-2 pt-0">Date</label>
+                    <div class="col-sm-10">
+                        <input style="color: white; background-color:black;" type="date">
+                    </div>
+
+
+                </div>
+            </fieldset> -->
+            <div class="form-group row">
+                <div class="col-sm-10">
+                    <h1 *ngIf="booked()" style="color: green;">Hotel Booked</h1>
+                    <button type="submit" (click)="home()" class="btn btn-primary">Home</button>
+                    <button *ngIf="!booked()" type="submit" (click)="payment()" class="btn btn-primary">Pay</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+</div>

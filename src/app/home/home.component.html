@@ -1,0 +1,19 @@
+<div class="page-container">
+    <div class="sidebar">
+        <div class="list-items">
+                <a  routerLink="/home/hotels" routerLinkActive="selected" class="list-item"><i class='fas fa-hotel'></i> Hotels</a>
+                <a    routerLink="/home/flights" routerLinkActive="selected" class="list-item"><i class="fas fa-plane"></i> Flights</a>
+                <a    routerLink="/home/packages" routerLinkActive="selected" class="list-item"><i class='fas fa-suitcase-rolling'></i> Packages</a> 
+                <a  *ngIf="admin()"  routerLink="/home/users" routerLinkActive="selected" class="list-item"><i class='fas fa-user-check'></i> Users</a> 
+           
+
+                <a    routerLink="/" (click)="logout()" class="list-item logoutBtn"><i class='fas fa-user-alt'></i> {{user.userName}}, Logout</a> 
+        </div>
+    </div>
+    
+    <div class="page-content-container">
+            <!-- <h1 class="heading">Welcome {{user.userName}}, to PlanYourTrip</h1> -->
+        <router-outlet></router-outlet>
+    </div>
+
+</div>

@@ -1,0 +1,122 @@
+<div class="main-container">
+    <div class="top-bar">
+        <h2>Hotels</h2>
+
+        <!-- Search Button -->
+        <form class="search-content" #searchForm="ngForm" (ngSubmit)="searchHotelDetails()">
+            <input class="search" type="text" name="search" [(ngModel)]="searchHotel" #searchCity="ngModel" id="search"
+                placeholder="Search hotel by city" required="">
+            <button class="search-btn" type="submit" value="searchHotel"> Search</button>
+        </form>
+
+    </div>
+    <main>
+
+
+        <h2 style="color: red;" *ngIf="lengthFlagPrint()">No Hotel Found</h2>
+
+        <!-- Add Hotel -->
+        <form class="form" *ngIf="admin()" #addHotelForm="ngForm" (ngSubmit)="addHotel()">
+
+            <div class="form-group">
+                <label for="hotelName">Hotel Name</label>
+                <input type="text" [(ngModel)]="hotel.hotelName" class="form-control" id="hotelName" name="hotelName"
+                    aria-describedby="emailHelp" placeholder="Enter Hotel Name" #hotelName="ngModel" required="">
+            </div>
+            <div class="form-group">
+                <label for="hotelCity">City</label>
+                <input type="text" [(ngModel)]="hotel.hotelCity" class="form-control" id="hotelCity" name="hotelCity"
+                    placeholder="Enter Hotel City" #hotelCity="ngModel" required="">
+            </div>
+            <div class="form-group">
+                <label for="hotelRooms">Number of Rooms</label>
+                <input type="number" [(ngModel)]="hotel.hotelRooms" class="form-control" id="hotelRooms"
+                    name="hotelRooms" placeholder="Enter Number of Rooms" #hotelRooms="ngModel" required="">
+            </div>
+            <div class="form-group">
+                <label for="hotelPrice">Price</label>
+                <input type="number" [(ngModel)]="hotel.hotelPrice" class="form-control" id="hotelPrice"
+                    name="hotelPrice" placeholder="Enter Price" #hotelPrice="ngModel" required="">
+            </div>
+            <button [disabled]="addHotelForm.form.invalid" type="submit" value="addHotel" class="btn btn-primary"
+                data-dismiss="modal">Add</button>
+        </form>
+
+
+        <!-- Search Hotels -->
+        <div class="cards" *ngIf="!hotelDetailFlag()">
+            <div class="container bcontent" *ngFor="let hotel of searchHotelList">
+                <h2 class="hotelName" style="margin:0px;">{{hotel.hotelName}}</h2>
+                <hr />
+                <div class="card">
+                    <div class="row no-gutters">
+                        <div class="col-sm-5">
+                            <div class="img"></div>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="card-body">
+                                <h5 class="card-title">{{hotel.hotelCity}}</h5>
+                                <p class="card-text">${{hotel.hotelPrice}}</p>
+                                <p *ngIf="admin()" class="card-text">Rooms: {{hotel.hotelRooms}}</p>
+                                <form class="form" #deleteHotelForm="ngForm" (ngSubmit)="deleteHotel(hotel)">
+                                    <p style="color: red;" *ngIf="!rooms(hotel)">No Rooms Available</p>
+                                    <Button skipLocationChange *ngIf="rooms(hotel)"
+                                        (click)="getDetail(hotel, user)" routerLink="/book"
+                                        class="list-item">Book</Button>
+                                    <!-- (click)="deleteHotel(hotel)" -->
+                                    <Button data-dismiss="modal" class="deleteBtn" type="submit"
+                                        *ngIf=admin()>Delete</Button>
+
+
+                                </form>
+                                <Button data-dismiss="modal" class="deleteBtn" (click)="updateHotel(hotel)"
+                                    *ngIf=admin()>Update</Button>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <!-- Display Hotels -->
+
+        <div class="cards" *ngIf="hotelDetailFlag()">
+            <div class="container bcontent" *ngFor="let hotel of hotelDetails">
+                <h2 class="hotelName" style="margin:0px;">{{hotel.hotelName}}</h2>
+                <hr />
+                <div class="card">
+                    <div class="row no-gutters">
+                        <div class="col-sm-5">
+                            <div class="img"></div>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="card-body">
+                                <h5 class="card-title">{{hotel.hotelCity}}</h5>
+                                <p class="card-text">${{hotel.hotelPrice}}</p>
+                                <p *ngIf="admin()" class="card-text">Rooms: {{hotel.hotelRooms}}</p>
+                                <form class="form" #deleteHotelForm="ngForm" (ngSubmit)="deleteHotel(hotel)">
+                                    <p style="color: red;" *ngIf="!rooms(hotel)">No Rooms Available</p>
+                                    <Button skipLocationChange *ngIf="rooms(hotel)"
+                                        (click)="getDetail(hotel, user)" routerLink="/book"
+                                        class="list-item">Book</Button>
+                                    <!-- (click)="deleteHotel(hotel)" -->
+                                    <Button data-dismiss="modal" class="deleteBtn" type="submit"
+                                        *ngIf=admin()>Delete</Button>
+                                </form>
+                                <Button data-dismiss="modal" class="deleteBtn" (click)="updateHotel(hotel)"
+                                    *ngIf=admin()>Update</Button>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+</div>
