@@ -1,0 +1,45 @@
+<div class="main-container">
+    <div class="col-sm-10">
+        <h2>Profile</h2>
+             
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label">Mail-id:</label>
+                <div class="col-sm-10">
+                    <p>{{user.emailId}}</p>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label">Username:</label>
+                <div class="col-sm-10">
+                    <p>{{user.userName}}</p>
+                </div>
+            </div>
+            <button type="submit" (click)="home()" class="btn btn-primary">Home</button>
+            <button  (click)="editBtn()" class="btn btn-primary">{{!editFlag?"Edit Profile":"Close Edit Profile"}}</button>
+
+        <br><br><br>
+        <form *ngIf="editFlag"  #UserUpdateForm="ngForm" (ngSubmit)="updateUser()">
+            <h1 *ngIf="updatedUser()" style="color: green;">User Profile Updated</h1>
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label">Mail-id:</label>
+                <div class="col-sm-10">
+                    <input name="emailId" required [(ngModel)]="user.emailId" #email="ngModel" type="email" class="col-sm-2 col-form-label" value={{user.emailId}}>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label">Username:</label>
+                <div class="col-sm-10">
+                    <input name="userName" required [(ngModel)]="user.userName" #email="ngModel" type="text" class="col-sm-2 col-form-label" value={{user.userName}}>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label">Password:</label>
+                <div class="col-sm-10">
+                    <input name="password" required [(ngModel)]="user.password" #email="ngModel" type="password" class="col-sm-2 col-form-label" value={{user.password}}>
+                </div>
+            </div>
+            <button type="submit" [disabled]="UserUpdateForm.form.invalid" class="btn">Update</button>
+        </form>
+    </div>
+
+</div>

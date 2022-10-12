@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { HotelsComponent } from './hotels/hotels.component';
 import { LoginComponent } from './login/login.component';
 import { PackagesComponent } from './packages/packages.component';
+import { ProfileComponent } from './profile/profile.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { UpdateHotelComponent } from './update-hotel/update-hotel.component';
 import { UsersComponent } from './users/users.component';
@@ -19,7 +20,8 @@ const routes: Routes = [
     {path: 'hotels', component: HotelsComponent},
     {path: 'flights', component: FlightsComponent},
     {path: 'packages', component: PackagesComponent},
-    {path: 'users', component: UsersComponent}
+    {path: 'users', component: UsersComponent},
+    {path: 'profile', component: ProfileComponent}
   ]},
   {path: 'book', component: BookComponent},
   {path: 'updateHotel', component: UpdateHotelComponent}

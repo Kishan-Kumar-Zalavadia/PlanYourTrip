@@ -4,7 +4,8 @@
 }
 
 .page-content-container{
-    height: 100vh;
+    min-height: 100%;
+    height: auto;
     background: url(../images/bg-image.jpg);
     background-size: cover;
 }

@@ -5,8 +5,7 @@
                 <a    routerLink="/home/flights" routerLinkActive="selected" class="list-item"><i class="fas fa-plane"></i> Flights</a>
                 <a    routerLink="/home/packages" routerLinkActive="selected" class="list-item"><i class='fas fa-suitcase-rolling'></i> Packages</a> 
                 <a  *ngIf="admin()"  routerLink="/home/users" routerLinkActive="selected" class="list-item"><i class='fas fa-user-check'></i> Users</a> 
-           
-
+                <a    routerLink="/home/profile" routerLinkActive="selected" class="list-item"><i class='fas fa-user-alt'></i> Profile</a> 
                 <a    routerLink="/" (click)="logout()" class="list-item logoutBtn"><i class='fas fa-user-alt'></i> {{user.userName}}, Logout</a> 
         </div>
     </div>

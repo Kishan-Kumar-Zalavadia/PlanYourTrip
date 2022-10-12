@@ -43,4 +43,9 @@ export class RegistrationService {
     return this._http.put<any>(url,User);
   }
 
+  public updateUserDetailFromRemote(user: User){
+    const url="http://localhost:9292/updateUser/"+user.id
+    return this._http.put<any>(url,user)
+  }
+
 }
