@@ -28,6 +28,12 @@
                 </div>
             </div>
             <div class="form-group row">
+                <label for="" class="col-sm-2 col-form-label">Discount:</label>
+                <div class="col-sm-10">
+                    <label for="" class="col-sm-2 col-form-label">{{user.discount}}</label>
+                </div>
+            </div>
+            <div class="form-group row">
                 <label for="inputEmail3" class="col-sm-2 col-form-label">Hotel Rooms:</label>
                 <div class="col-sm-10">
                     <label for="inputEmail3" class="col-sm-2 col-form-label">{{hotel.hotelRooms}}</label>
@@ -64,7 +70,12 @@
 
                 </div>
             </fieldset>
-
+            <div class="form-group row">
+                <label for="inputEmail3" class="col-sm-2 col-form-label">Paying Amount:</label>
+                <div class="col-sm-10">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">{{hotel.hotelPrice-user.discount}}</label>
+                </div>
+            </div>
 
             <!-- <fieldset class="form-group">
                 <div class="row">

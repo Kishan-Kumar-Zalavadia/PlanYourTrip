@@ -28,6 +28,7 @@ export class BookComponent implements OnInit {
       data=>{
         console.log(data)
         console.log("Booked Successfully")
+        this.user.discount=0;
         this.bookFlag=true
       },
       error=>{

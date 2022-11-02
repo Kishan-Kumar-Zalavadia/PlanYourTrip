@@ -38,6 +38,48 @@ export class ProfileComponent implements OnInit {
   editBtn(){
     this.editFlag=!this.editFlag;
   }
+
+  statusFlag:boolean=false;
+
+  msg=''
+  
+  enterReferral(code: String){
+    this._registrationService.enterReferralCodeFromRemote(this.user,code).subscribe(
+        data=>{
+          console.log(data);
+          if(data==true){
+            this.statusFlag=true;
+            this.msg="Referral Added";
+          }
+          else{
+            this.msg="Invalid Referral"
+          }
+        },
+        error=>console.log(error)
+      )
+  }
+  isFriendCodeFlag:boolean=false;
+  
+  status(){
+    console.log(this.statusFlag)
+    return this.statusFlag;
+  }
+
+  checkReferralCodeExist(){
+    if(this.user.friendCode==""){
+      console.log(this.user.friendCode)
+      return true;
+    }
+    else{
+      console.log(this.user.friendCode)
+      return false;
+    }
+  }
+
+  referralCodeFlag:boolean=false;
+  enterReferralCode(){
+    this.referralCodeFlag=!this.referralCodeFlag
+  }
   
 
 }

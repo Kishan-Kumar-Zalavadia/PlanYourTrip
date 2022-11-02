@@ -48,4 +48,10 @@ export class RegistrationService {
     return this._http.put<any>(url,user)
   }
 
+  //Referral Part
+  public enterReferralCodeFromRemote(user: User, code: String){
+    const url="http://localhost:9292/addFriendsCode/"+user.id+"/"+code
+    return this._http.put(url,User)
+  }
+
 }
